@@ -23,21 +23,13 @@ void solve()
     {
         cin >> arr[i];
     }
-    int rev[N] = {0};
+    sort(arr, arr + N);
+    int ma = 0;
     fo(i, N)
     {
-        int a = arr[i];
-
-        fo(j, N)
-        {
-            if (arr[j] >= a)
-            {
-                rev[i] += a;
-            }
-        }
+        ma = max(arr[i] * (N - i), ma);
     }
-    sort(rev, rev + N);
-    cout << rev[N - 1];
+    cout << ma;
 }
 
 int32_t main()
